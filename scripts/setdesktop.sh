@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-feh --bg-scale ~/Pictures/wallpapers/wallhaven-153808.jpg
+feh --bg-scale ~/Pictures/wallpapers/wallhaven-148229.jpg
