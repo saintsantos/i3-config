@@ -21,6 +21,7 @@
 # compton
 # i3status
 # i3-gaps
+# lxappearance
 # android studio (maybe if you feel like it)
 # Any startup scripts are defined here for convenience
 exec ~/.i3/scripts/setdesktop.sh
