@@ -8,7 +8,17 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
+# Extra rograms required for this i3 config:
+# feh
+# scrot
+# i3lock
+# rofi
+# ranger
+# nm-applet
+# xinput
+# xbacklight
+# terminator 
+# android studio (maybe if you feel like it)
 # Any startup scripts are defined here for convenience
 exec ~/.i3/scripts/setdesktop.sh
 exec xinput set-prop 15 "Synaptics Scrolling Distance" -46, -46
