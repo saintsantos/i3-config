@@ -18,51 +18,72 @@
 # xinput
 # xbacklight
 # terminator 
-# compton
+#} compton
 # i3status
 # i3-gaps
 # lxappearance
 # android studio (maybe if you feel like it)
-# Any startup scripts are defined here for convenience
-exec ~/.i3/scripts/setdesktop.sh
-exec xinput set-prop 15 "Synaptics Scrolling Distance" -46, -46
+
+
+# Setup variables
+set $mod Mod4
+set $gaps_inner 15
+set $gaps_outer 3
+set $border_px 2
+
+
+# Application shortcuts
+set $term gnome-terminal
+set $filemanager gnome-terminal -e ranger
+set $wallpaper ~/.i3/wallpaper/wallhaven-148229.jpg
+
+
+# Startup
+exec --no-startup-id ~/.i3/scripts/setdesktop.sh
+exec --no-startup-id xinput set-prop 15 "Synaptics Scrolling Distance" -46, -46
 exec --no-startup-id nm-applet
-exec compton --config ~/.i3/compton/compton.conf -b
-# exec --no-startup-id rofi -key-run control+space
-# load layout
-set $mod Mod1
+exec --no-startup-id compton --config ~/.i3/compton/compton.conf -b
 
-# Setup for i3 gaps
-for_window [class="^.*"] border pixel 0 
-gaps inner 15
-gaps outer 3
+
+# i3 gaps
+gaps inner $gaps_inner
+gaps outer $gaps_outer
 smart_borders on
+smart_gaps on
 
 
+#remove titlebar
+new_window none
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
+
+#set border for i3 gaps
+for_window [class="^.*"] border pixel $border_px
+new_window pixel $border_px
+new_float pixel $border_px
+
+
+#Font information
 # font pango:monospace 8
 # font pango:DejaVu Sans Mono, Book 10
   font pango:Ubuntu 10
+
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec --no-startup-id terminator
 
 # kill focused window
 bindsym $mod+q kill
 
-# start dmenu (a program launcher)
-#bindsym Control+space exec dmenu_run
-bindsym Control+space exec ~/.i3/scripts/rofi.sh
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+#Using rofi as an aplication launcher
+bindsym Control+space exec --no-startup-id ~/.i3/scripts/rofi.sh
+
+
+#screenshot tool
 bindsym $mod+F10 exec scrot
+
+
 
 # change focus
 bindsym $mod+h focus left
@@ -70,11 +91,13 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -82,11 +105,13 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
 
 # split in horizontal orientation
 bindsym $mod+Shift+b split h
@@ -94,103 +119,111 @@ bindsym $mod+Shift+b split h
 # split in vertical orientation
 bindsym $mod+Shift+v split v
 
+# toggle the split
+bindsym $mod+e layout toggle split
+
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+
 
 # lock screen
 bindsym $mod+Control+space exec /home/edwin/.i3/scripts/lock.sh
 
+
 # Volume controls
-bindsym $mod+F3 exec amixer sset Master 5%+
-bindsym $mod+F2 exec amixer sset Master 5%-
-bindsym $mod+F1 exec amixer -q sset Master toggle
+bindsym $mod+F3 exec "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"
+bindsym $mod+F2 exec "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%"
+bindsym $mod+F1 exec "pactl set-sink-mute 0 toggle"
+
 
 # Brightness controls
 bindsym $mod+F12 exec xbacklight +10
 bindsym $mod+F11 exec xbacklight -10
-bindsym $mod+Shift+F11 exec xbacklight -5
+bindsym $mod+Shift+F11 exec xbacklight -5 #Large drop off in brightness, let's you take it slow at lower brightness
+
 
 # Disable/enable mouse
 bindsym $mod+F7 exec xinput --disable 15
 bindsym $mod+F8 exec xinput --enable 15
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
+
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
+
 
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
 
 # Rotate through open workspaces
 bindsym $mod+Control+Right workspace next
 bindsym $mod+Control+Left workspace prev
 
+#switch workspaces back and forth
+bindsym $mod+Tab workspace back_and_forth
+
 # switch to workspace
-bindsym $mod+1 workspace 1: term
-bindsym $mod+2 workspace 2: web
-bindsym $mod+3 workspace 3: dev
-bindsym $mod+4 workspace 4: file
-bindsym $mod+5 workspace 5: chat
-bindsym $mod+6 workspace 6:
-bindsym $mod+7 workspace 7:
-bindsym $mod+8 workspace 8:
-bindsym $mod+9 workspace 9: anddev
-bindsym $mod+0 workspace 10:
+bindsym $mod+1 workspace " term"
+bindsym $mod+2 workspace " web"
+bindsym $mod+3 workspace " atom"
+bindsym $mod+4 workspace " Steam"
+bindsym $mod+5 workspace " file"
+bindsym $mod+6 workspace " chat"
+bindsym $mod+7 workspace " anddev"
+bindsym $mod+8 workspace " git"
+
+# specified appication workspaces
+bindsym $mod+m workspace " file"; exec $filemanager
+bindsym $mod+s workspace " Steam"; exec steam
+bindsym $mod+Shift+a workspace " anddev"; exec android-studio #Need to get android studio up and running
+bindsym $mod+g workspace " git"; exec --no-startup-id gitkraken 
+bindsym $mod+t workspace " term"; exec --no-startup-id $term 
+
+#Application-specific keybindings
+bindsym $mod+Return exec --no-startup-id $term
+bindsym Control+Shift+space exec rofi -show window
+
+ 
+
+
+
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1: term
-bindsym $mod+Shift+2 move container to workspace 2: web
-bindsym $mod+Shift+3 move container to workspace 3: dev
-bindsym $mod+Shift+4 move container to workspace 4: file
-bindsym $mod+Shift+5 move container to workspace 5: chat
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9: anddev
-bindsym $mod+Shift+0 move container to workspace 10
-
-#Setup loadout for anddev
-#i3-msg 'workspace anddev; mode "android-dev"'
-#for-window [class="Android Studio"] mode "android-dev"
+bindsym $mod+Shift+1 move container to workspace " term"
+bindsym $mod+Shift+2 move container to workspace " web"
+bindsym $mod+Shift+3 move container to workspace " atom"
+bindsym $mod+Shift+4 move container to workspace " Steam"
+bindsym $mod+Shift+5 move container to workspace " file"
+bindsym $mod+Shift+6 move container to workspace " chat"
+bindsym $mod+Shift+7 move container to workspace " anddev"
+bindsym $mod+Shift+8 move container to workspace " git"
+ 
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
+
 # exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+e exec i3-msg exit
 #bindsym $mod+Shift+e exec xfce4-session-logout
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
+        
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -198,30 +231,32 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-mode "android-dev" {
-	bindsym $mod+Shift+enter exec --no-startup-id terminator
-	# workspace controls
-	bindsym $mod+1 workspace 1: term
-	bindsym $mod+2 workspace 2: web
-	bindsym $mod+3 workspace 3: dev
-	bindsym $mod+4 workspace 4: file
-  bindsym $mod+9 workspace 9: anddev
-  # Disable/enable mouse bindsym $mod+F7 exec xinput --disable 15
-  bindsym $mod+F7 exec xinput --disable 15
-  bindsym $mod+F8 exec xinput --enable 15
 
-	# Exit on alt-shift-esc
-	bindsym $mod+Shift+Escape mode "default"
-}
-
-bindsym $mod+Shift+a mode "android-dev"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+
+
+#Top bar for system info
 bar {
-    status_command i3status
+  #status_command i3statusbindsym $mod+Shift+a mode "android-dev"
+  id bar-1 
+  status_command python ~/.i3/pystatus/pystatus.py
+  #status_command i3blocks
 	position top
 	mode hide
 	hidden_state hide
-	modifier Mod1
- }
+	modifier $mod
+  font pango: DejaVu Sans Mono, Icons 8
+} 
+
+# Bottom bar for workspaces only
+#bar {
+#  id bar-2
+#  status_command i3status -t
+  #i3bar_command i3bar -t
+#  position bottom
+#  mode hide
+ # hidden_state hide
+#  modifier $mod
+#}
