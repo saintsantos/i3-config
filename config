@@ -37,7 +37,6 @@ set $term gnome-terminal
 set $filemanager gnome-terminal -e ranger
 set $wallpaper ~/.i3/wallpaper/wallhaven-148229.jpg
 
-
 # Startup
 exec --no-startup-id ~/.i3/scripts/setdesktop.sh
 exec --no-startup-id xinput set-prop 15 "Synaptics Scrolling Distance" -46, -46
@@ -254,7 +253,7 @@ bar {
 #bar {
 #  id bar-2
 #  status_command i3status -t
-  #i3bar_command i3bar -t
+ #i3bar_command i3bar -t
 #  position bottom
 #  mode hide
  # hidden_state hide
