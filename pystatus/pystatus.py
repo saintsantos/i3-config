@@ -5,8 +5,8 @@ status = Status(standalone=True)
 # Displays clock like this:
 # Tue 30 Jul 11:59:46 PM KW31
 #                          ^-- calendar week
-status.register("clock",
-    format="%-d %b %X",)
+#status.register("clock",
+#    format="%-d %b %X",)
 
 # Shows the average load of the last minute and the last 5 minutes
 # (the default value for format is used)
@@ -66,9 +66,9 @@ status.register("battery",
 #    format_up="{v4cidr}",)
 
 # Note: requires both netifaces and basiciw (for essid and quality)
-status.register("network",
-    interface="wlp1s0",
-    format_up="{essid} {quality:03.0f}%",)
+#status.register("network",
+#    interface="wlp1s0",
+#    format_up="{essid} {quality:03.0f}%",)
 
 # Shows disk usage of /
 # Format:
@@ -80,11 +80,11 @@ status.register("disk",
 # Shows pulseaudio default sink volume
 #
 # Note: requires libpulseaudio from PyPI
-status.register("pulseaudio",
-   format="♪{volume}{muted}",
-   color_muted = "#FFFF00",
-   on_leftclick = ["switch_mute"]
-   )
+#status.register("pulseaudio",
+#   format="♪{volume}{muted}",
+#   color_muted = "#FFFF00",
+#   on_leftclick = ["switch_mute"]
+#   )
 
 
 # Shows mpd status
