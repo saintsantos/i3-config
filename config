@@ -33,8 +33,8 @@ set $border_px 2
 
 
 # Application shortcuts
-set $term terminator
-set $filemanager terminator -e ranger
+set $term gnome-terminal
+set $filemanager gnaom-terminal -e ranger
 set $wallpaper ~/.i3/wallpaper/wallhaven-148229.jpg
 
 # Startup
