@@ -168,8 +168,8 @@ bindsym $mod+a focus parent
 
 
 # Rotate through open workspaces
-bindsym $mod+Control+Right workspace next
-bindsym $mod+Control+Left workspace prev
+bindsym $mod+Control+k workspace next
+bindsym $mod+Control+j workspace prev
 
 #switch workspaces back and forth
 bindsym $mod+Tab workspace back_and_forth
