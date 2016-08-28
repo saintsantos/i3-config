@@ -139,6 +139,10 @@ bindsym XF86AudioMute exec "amixer -D pulse set Master 1+ toggle"
 bindsym XF86AudioLowerVolume exec "amixer -D pulse set Master 5%-"
 bindsym XF86AudioRaiseVolume exec "amixer -D pulse set Master 5%+"
 
+# Music Controls
+bindsym XF86AudioPlay exec "playerctl play-pause"
+bindsym XF86AudioNext exec "playerctl next"
+bindsym XF86AudioPrev exec "playerctl previous"
 
 # Brightness controls
 bindsym $mod+F12 exec xbacklight +10
