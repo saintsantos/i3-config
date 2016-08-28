@@ -33,15 +33,15 @@ set $border_px 2
 
 
 # Application shortcuts
-set $term gnome-terminal
-set $filemanager gnaom-terminal -e ranger
-set $wallpaper ~/.i3/wallpaper/wallhaven-148229.jpg
+set $term xfce4-terminal
+set $filemanager thunar
+set $wallpaper ~/.i3/wallpaper/wallhaven-157062.jpg
 
 # Startup
 exec --no-startup-id ~/.i3/scripts/setdesktop.sh
 exec --no-startup-id xinput set-prop 14 "Synaptics Scrolling Distance" -46, -46
 exec --no-startup-id nm-applet
-#exec --no-startup-id compton --config ~/.i3/compton/compton.conf -b
+exec --no-startup-id compton --config ~/.i3/compton/compton.conf -b
 
 
 # i3 gaps
@@ -56,9 +56,14 @@ new_window none
 
 
 #set border for i3 gaps
-for_window [class="^.*"] border pixel $border_px
 new_window pixel $border_px
 new_float pixel $border_px
+
+# Color Settings
+client.focused #FF6600 #333333 #CCCCCC #00C1FF
+client.focused_inactive #333333 #333333 #999999 #2C2C2C
+client.unfocused #2C2C2C #2C2C2C #ffffff #2C2C2C
+client.urgent #00C1FF #00C1FF #000088 #00C1FF
 
 
 #Font information
@@ -176,10 +181,10 @@ bindsym $mod+7 workspace " anddev"
 bindsym $mod+8 workspace " git"
 
 # specified appication workspaces
-bindsym $mod+m workspace " file"; exec $filemanager
+bindsym $mod+Shift+m workspace " file"; exec $filemanager
 bindsym $mod+s workspace " Steam"; exec steam
 bindsym $mod+Shift+a workspace " anddev"; exec android-studio #Need to get android studio up and running
-bindsym $mod+Shift+m workspace " music"
+bindsym $mod+m workspace " music"
 
 bindsym $mod+g workspace " git"; exec --no-startup-id gitkraken 
 bindsym $mod+t workspace " term"; exec --no-startup-id $term 
@@ -242,14 +247,14 @@ bindsym $mod+r mode "resize"
 bar {
   #status_command i3statusbindsym $mod+Shift+a mode "android-dev"
   id bar-1 
-#  status_command python ~/.i3/pystatus/pystatus.py
-	status_command i3status
-  #status_command i3blocks
+  #status_command python ~/.i3/pystatus/pystatus.py
+  #status_command i3status
+  status_command i3blocks
 	position top
 	mode hide
 	hidden_state hide
 	modifier $mod
-  font pango: DejaVu Sans Mono, Icons 8
+  font pango: Liberation Mono 10
 } 
 
 # Bottom bar for workspaces only

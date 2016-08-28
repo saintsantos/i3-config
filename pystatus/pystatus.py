@@ -1,4 +1,6 @@
+# -*- coding: utf-8 -*-
 from i3pystatus import Status
+
 
 status = Status(standalone=True)
 
