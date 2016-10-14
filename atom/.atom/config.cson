@@ -1,0 +1,27 @@
+"*":
+  core:
+    allowPendingPaneItems: false
+    autoHideMenuBar: true
+    disabledPackages: [
+      "vim-mode"
+      "activate-power-mode"
+      "source-preview-markdown"
+    ]
+    themes: [
+      "genesis-ui"
+      "vivid-syntax"
+    ]
+  editor:
+    fontSize: 16
+    tabLength: 4
+    tabType: "soft"
+  "exception-reporting":
+    userId: "718be88e-e040-1b7a-681e-f873500e7e5e"
+  minimap:
+    plugins:
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false

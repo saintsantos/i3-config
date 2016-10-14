@@ -30,7 +30,7 @@ set $mod Mod4
 set $gaps_inner 15
 set $gaps_outer 3
 set $border_px 2
-
+set $dmenu "dmenu -i -b -p Run -l 3"
 
 # Application shortcuts
 set $term xfce4-terminal
@@ -39,7 +39,7 @@ set $wallpaper ~/.i3/wallpaper/wallhaven-157062.jpg
 
 # Startup
 exec --no-startup-id ~/.i3/scripts/setdesktop.sh
-exec --no-startup-id xinput set-prop 14 "Synaptics Scrolling Distance" -46, -46
+exec --no-startup-id xinput set-prop 15 "Synaptics Scrolling Distance" -46, -46
 exec --no-startup-id nm-applet
 exec --no-startup-id compton --config ~/.i3/compton/compton.conf -b
 
@@ -81,8 +81,8 @@ bindsym $mod+q kill
 
 
 #Using rofi as an aplication launcher
-bindsym Control+space exec --no-startup-id ~/.i3/scripts/rofi.sh
-
+#bindsym Control+space exec --no-startup-id ~/.i3/scripts/rofi.sh
+bindsym Control+space exec --no-startup-id j4-dmenu-desktop --dmenu=$dmenu
 
 #screenshot tool
 bindsym $mod+F10 exec scrot
@@ -147,12 +147,10 @@ bindsym XF86AudioPrev exec "playerctl previous"
 # Brightness controls
 bindsym $mod+F12 exec xbacklight +10
 bindsym $mod+F11 exec xbacklight -10
-bindsym $mod+Shift+F11 exec xbacklight -5 #Large drop off in brightness, let's you take it slow at lower brightness
-
-
+bindsym $mod+Shift+F11 exec xbacklight -5 
 # Disable/enable mouse
-bindsym $mod+F7 exec xinput --disable 14
-bindsym $mod+F8 exec xinput --enable 14
+bindsym $mod+F7 exec xinput --disable 15
+bindsym $mod+F8 exec xinput --enable 15
 
 
 # toggle tiling / floating
@@ -188,20 +186,17 @@ bindsym $mod+8 workspace " git"
 bindsym $mod+Shift+m workspace " file"; exec $filemanager
 bindsym $mod+s workspace " Steam"; exec steam
 bindsym $mod+Shift+a workspace " anddev"; exec android-studio #Need to get android studio up and running
-bindsym $mod+m workspace " music"
+bindsym $mod+c workspace " web"; exec google-chrome-stable
+bindsym $mod+m workspace " music"; exec spotify
+bindsym $mod+p workspace " atom"; exec atom
+bindsym $mod+Shift+p workspace " atom"; exec pycharm.sh
 
-bindsym $mod+g workspace " git"; exec --no-startup-id gitkraken 
+
 bindsym $mod+t workspace " term"; exec --no-startup-id $term 
 
 #Application-specific keybindings
 bindsym $mod+Return exec --no-startup-id $term
-bindsym Control+Shift+space exec rofi -show window
-
  
-
-
-
-
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace " term"
 bindsym $mod+Shift+2 move container to workspace " web"

@@ -1,0 +1,38 @@
+{
+  "name": "katana-syntax",
+  "theme": "syntax",
+  "version": "0.1.0",
+  "description": "A minimal and elegant syntax theme",
+  "keywords": [
+    "syntax",
+    "theme"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keitax/katana-syntax.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "readme": "# katana-syntax theme\n\nA minimal and elegant syntax theme.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/keitax/katana-syntax/issues"
+  },
+  "homepage": "https://github.com/keitax/katana-syntax#readme",
+  "_id": "katana-syntax@0.1.0",
+  "_shasum": "2c6c4cd8cc3899bd4f779938b5036481f4b77e94",
+  "_resolved": "file:../d-116731-18229-pyxh05/package.tgz",
+  "_from": "../d-116731-18229-pyxh05/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

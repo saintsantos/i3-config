@@ -1,0 +1,34 @@
+atom-text-editor, :host {
+  background-color: white;
+  color: black;
+
+  .wrap-guide {
+    background-color: darkgray !important;
+  }
+
+  .selection .region {
+    color: black;
+    background-color: lightskyblue;
+  }
+
+  .comment, .annotation {
+    color: darkgray;
+  }
+
+  .string {
+    color: green;
+  }
+
+  .name.class, .name.function {
+    font-weight: bold;
+  }
+
+  .highlight.find-result .region {
+    border: none !important;
+    background-color: rgba(255,255,0,0.5) !important;
+  }
+
+  .highlight.current-result .region {
+    border: none !important;
+  }
+}

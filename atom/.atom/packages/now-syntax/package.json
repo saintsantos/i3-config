@@ -1,0 +1,42 @@
+{
+  "name": "now-syntax",
+  "theme": "syntax",
+  "version": "0.0.7",
+  "author": {
+    "name": "Daniel Illouz"
+  },
+  "description": "Minimalistic dark syntax theme inspired by the zeit now website.",
+  "keywords": [
+    "syntax",
+    "theme",
+    "dark"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danillouz/now-syntax.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "readme": "# Now Syntax theme\n\n[now-syntax](https://atom.io/themes/now-syntax) is a minimalistic dark syntax theme inspired by the [zeit now](https://zeit.co/now) website, with some minor changes.\n\n## Screenshots\n\n### JavaScript\n![now-js](https://raw.githubusercontent.com/danillouz/now-syntax/master/screenshots/now-js.png \"now-syntax js\")\n\n### JSX\n![now-jsx](https://raw.githubusercontent.com/danillouz/now-syntax/master/screenshots/now-jsx.png \"now-syntax jsx\")\n\n### HTML\n![now-html](https://raw.githubusercontent.com/danillouz/now-syntax/master/screenshots/now-html.png \"now-syntax html\")\n\n### JSON\n![now-json](https://raw.githubusercontent.com/danillouz/now-syntax/master/screenshots/now-json.png \"now-syntax json\")\n\n### Markdown\n![now-md](https://raw.githubusercontent.com/danillouz/now-syntax/master/screenshots/now-md.png \"now-syntax markdown\")\n\n> The theme in the screenshots is [atom-material-ui](https://atom.io/themes/atom-material-ui).\n\n### Alternative UI\nAlso looks good (bit more quiet) with [nucleus-dark-ui](https://atom.io/themes/nucleus-dark-ui).\n\n![quiet](https://raw.githubusercontent.com/danillouz/now-syntax/master/screenshots/quiet.png \"quiet\")\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/danillouz/now-syntax/issues"
+  },
+  "homepage": "https://github.com/danillouz/now-syntax#readme",
+  "_id": "now-syntax@0.0.7",
+  "_shasum": "6f7fb60d2ce5e85aa4cfeb498d5b7e5decc9a33e",
+  "_resolved": "file:../d-116731-17201-1sw5k9e/package.tgz",
+  "_from": "../d-116731-17201-1sw5k9e/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}
